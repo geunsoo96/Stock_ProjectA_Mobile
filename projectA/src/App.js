@@ -1,11 +1,14 @@
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import Detail from './components/Detail/Detail';
+import Header from './Layout/Header';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <Detail name="" />
-    </SafeAreaView>
+    <View>
+      <Header />
+      <Text>App</Text>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({});
