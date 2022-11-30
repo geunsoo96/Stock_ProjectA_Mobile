@@ -1,11 +1,12 @@
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import React from 'react';
+import Detail from '../components/Detail/Detail';
 
 export default function Header() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text>메인(스크롤뷰)</Text>
+        <Detail />
       </View>
     </ScrollView>
   );
