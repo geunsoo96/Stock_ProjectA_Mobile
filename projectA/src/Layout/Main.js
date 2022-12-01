@@ -1,20 +1,23 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import React from 'react';
-import Detail from '../components/Detail/Detail';
+import {StyleSheet, ScrollView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-export default function Header() {
+import React from 'react';
+import Header from './Header';
+
+export default function Main() {
+  const navigation = useNavigation();
+
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Detail />
-      </View>
+    <ScrollView style={styles.container}>
+      <Header />
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: 'skyblue',
-    height: 900,
+    height: 100,
   },
 });

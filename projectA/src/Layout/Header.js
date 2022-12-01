@@ -1,27 +1,24 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 import {logo} from '../../public/images/.png';
 import {Icon} from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function Header() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View>
-        <Text>검색</Text>
-      </View>
-      <View>
         <Text style={styles.title}>
-          우가우가{' '}
+          우가우가{'  '}
           <Image
             style={styles.image}
             source={require('../../public/images/logo.png')}
-          />{' '}
+          />
+          {'  '}
           투자증권
         </Text>
-      </View>
-      <View>
-        <Text>메뉴</Text>
       </View>
     </View>
   );
@@ -33,7 +30,7 @@ const styles = StyleSheet.create({
     height: 50,
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   title: {
