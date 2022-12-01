@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
+import DetailGraph from './DetailGraph';
 import DetailName from './DetailName';
 import DetailPrice from './DetailPrice';
 
@@ -52,7 +53,7 @@ export default function Detail(props) {
         <DetailName data={nameData} />
       </View>
       <View style={styles.graphBox}>
-        <Text>그래프 컴포넌트</Text>
+        <DetailGraph />
       </View>
       <View style={styles.buttonBox}>
         <Button title="1주일" onPress={onPress} />
