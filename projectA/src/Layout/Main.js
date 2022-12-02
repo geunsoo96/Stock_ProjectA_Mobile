@@ -1,4 +1,4 @@
-import {StyleSheet, ScrollView, Pressable, Text} from 'react-native';
+import {StyleSheet, ScrollView, Pressable, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import React from 'react';
@@ -10,7 +10,9 @@ export default function Main() {
   return (
     <>
       <Header />
-      <ScrollView style={styles.container}></ScrollView>
+      <View>
+        <ScrollView style={styles.container}></ScrollView>
+      </View>
     </>
   );
 }
