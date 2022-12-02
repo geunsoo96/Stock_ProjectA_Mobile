@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, ScrollView, StyleSheet, Button} from 'react-native';
 import DetailGraph from './DetailGraph';
 import DetailName from './DetailName';
 import DetailPrice from './DetailPrice';
@@ -48,7 +48,7 @@ export default function Detail(props) {
   const [priceData, priceDataSet] = useState(priceDummyData);
   const onPress = () => {};
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.nameBox}>
         <DetailName data={nameData} />
       </View>
@@ -63,6 +63,6 @@ export default function Detail(props) {
       <View style={styles.priceBox}>
         <DetailPrice data={priceData} />
       </View>
-    </View>
+    </ScrollView>
   );
 }
