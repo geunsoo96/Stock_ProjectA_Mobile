@@ -1,12 +1,7 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
-
-import {logo} from '../../public/images/.png';
-import {Icon} from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function Header() {
-  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View>
