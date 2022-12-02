@@ -22,7 +22,7 @@ export default function App() {
           initialRouteName="Main"
           screenOptions={{headerShown: false}}>
           <Tab.Screen
-            name="Search"
+            name="Detail"
             component={Detail}
             options={{
               title: '검색',

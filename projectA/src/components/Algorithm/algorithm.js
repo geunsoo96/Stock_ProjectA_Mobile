@@ -1,4 +1,12 @@
-import {StyleSheet, Text, View, Image, Button, Pressable} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Button,
+  Pressable,
+  Touchable,
+} from 'react-native';
 import React from 'react';
 import {ScrollView} from 'react-native';
 
@@ -12,6 +20,7 @@ const Algorithm = () => {
       <View style={styles.head}>
         <Text style={styles.headText}>이달의 추천 주식</Text>
         <Button title="침팬지 추천받기" color="salmon" />
+
         <Pressable style={styles.button} title="hi"></Pressable>
       </View>
       <View style={styles.container}>
@@ -49,6 +58,7 @@ const styles = StyleSheet.create({
   head: {
     width: '100%',
     display: 'flex',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   headText: {
@@ -57,9 +67,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button: {
-    width: '60%',
-    height: '10%',
+    width: '30%',
+    height: '15%',
     backgroundColor: '#FFC33B',
+    borderRadius: 3,
   },
 });
 export default Algorithm;

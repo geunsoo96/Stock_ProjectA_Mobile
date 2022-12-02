@@ -28,9 +28,9 @@ export default function DetailPrice(props) {
   ];
   return (
     <View style={styles.container}>
-      {dataSet.map(item => {
+      {dataSet.map((item, index) => {
         return (
-          <View style={styles.priceBox}>
+          <View key={index} style={styles.priceBox}>
             <Text style={styles.text}>{item.kr}</Text>
             <Text style={styles.text}>{props.data[item.en]}</Text>
           </View>
