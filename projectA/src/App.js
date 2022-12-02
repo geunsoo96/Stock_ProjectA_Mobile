@@ -8,7 +8,7 @@ import Main from './Layout/Main';
 import Algorithm from './components/Algorithm/algorithm';
 import News from './components/News/News.js';
 import Detail from './components/Detail/Detail';
-import Search from './components/Search/Search';
+import Search from './components/Detail/search';
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,7 +20,7 @@ export default function App() {
         <Tab.Navigator
           initialRouteName="Main"
           screenOptions={{headerShown: false}}>
-          <Tab.Screen name="Search" component={Detail} />
+          <Tab.Screen name="Search" component={Search} />
           <Tab.Screen name="Main" component={Main} />
           <Tab.Screen name="Algorithm" component={Algorithm} />
           <Tab.Screen name="News" component={News} />
