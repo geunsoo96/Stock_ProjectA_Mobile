@@ -8,9 +8,9 @@ import Icon2 from 'react-native-vector-icons/Entypo';
 
 import Main from './Layout/Main';
 import Algorithm from './components/Algorithm/algorithm';
-import News from './components/News/News.js';
+import News from './components/News/News';
 import Detail from './components/Detail/Detail';
-import Search from './components/Detail/search';
+import Search from './components/Detail/Search';
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -62,10 +62,6 @@ export default function App() {
               ),
             }}
           />
-          <Tab.Screen name="Search" component={Search} />
-          <Tab.Screen name="Main" component={Main} />
-          <Tab.Screen name="Algorithm" component={Algorithm} />
-          <Tab.Screen name="News" component={News} />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaView>
