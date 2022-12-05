@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {View, ScrollView, SafeAreaView, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,25 +25,24 @@ export default function DetailGraph(props) {
   const top = Math.max(...highArr);
   const bottom = Math.min(...lowArr);
   const gap = top - bottom;
-  let width = 0;
+  let barWidth = 0;
   if (highArr.length > 100) {
-    width = 8;
+    barWidth = 8;
   } else if (highArr.length > 50) {
-    width = 10;
+    barWidth = 10;
   } else {
-    width = 20;
+    barWidth = 20;
   }
   const graphData = props.data
     .slice(0)
     .reverse()
-    .map((item, index) => {
+    .map(item => {
       let data = {
         full: {
-          width: width,
+          width: barWidth,
           height: ((item.high - item.low) * 280) / gap,
           position: 'relative',
           top: ((top - item.high) * 280) / gap,
-          // left: index * width,
           alignItems: 'center',
         },
         top: {
@@ -51,13 +50,14 @@ export default function DetailGraph(props) {
           backgroundColor: 'black',
         },
         middle: {
-          width: width,
+          width: barWidth,
           backgroundColor: 'black',
         },
         bottom: {
           width: 1,
           backgroundColor: 'black',
         },
+        data: item,
       };
       if (item.open > item.close) {
         data.top.height = ((item.high - item.open) * 280) / gap;
@@ -82,6 +82,7 @@ export default function DetailGraph(props) {
         return data;
       }
     });
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.graphBox} horizontal={true}>
