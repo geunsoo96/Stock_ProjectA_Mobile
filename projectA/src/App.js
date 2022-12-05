@@ -20,6 +20,7 @@ export default function App() {
           initialRouteName="Main"
           screenOptions={{headerShown: false}}>
           <Tab.Screen name="Main" component={Main} />
+          <Tab.Screen name="Detail" component={Detail} />
           <Tab.Screen name="Algorithm" component={Algorithm} />
           <Tab.Screen name="News" component={News} />
         </Tab.Navigator>
