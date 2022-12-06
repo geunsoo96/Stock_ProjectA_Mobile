@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView, SafeAreaView, StyleSheet} from 'react-native';
+import {View, Text, ScrollView, SafeAreaView, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +13,19 @@ const styles = StyleSheet.create({
     height: 280,
     position: 'absolute',
   },
+  grid: {
+    width: '100%',
+    height: '25%',
+    position: 'absolute',
+    borderBottomWidth: 1,
+    borderStyle: 'dashed',
+  },
+  text: {
+    fontSize: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 55,
+  },
 });
 
 export default function DetailGraph(props) {
@@ -25,6 +38,12 @@ export default function DetailGraph(props) {
   const top = Math.max(...highArr);
   const bottom = Math.min(...lowArr);
   const gap = top - bottom;
+  const gridArr = [
+    bottom + (gap * 3) / 4,
+    bottom + (gap * 2) / 4,
+    bottom + gap / 4,
+    bottom,
+  ];
   let barWidth = 0;
   if (highArr.length > 100) {
     barWidth = 8;
@@ -86,6 +105,13 @@ export default function DetailGraph(props) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.graphBox} horizontal={true}>
+        {gridArr.map((item, index) => {
+          return (
+            <View style={styles.grid} top={index * 25 + '%'}>
+              <Text style={styles.text}>{item}</Text>
+            </View>
+          );
+        })}
         {graphData.map((item, index) => {
           return (
             <View style={item.full} key={index}>
