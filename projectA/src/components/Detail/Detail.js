@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   graphBox: {
-    height: 300,
+    height: 320,
   },
   buttonBox: {
     height: 60,

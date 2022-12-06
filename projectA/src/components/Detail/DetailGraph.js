@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'white',
   },
   graphBox: {
     width: 400,
@@ -17,14 +18,12 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '25%',
     position: 'absolute',
-    borderBottomWidth: 1,
+    borderTopWidth: 1,
     borderStyle: 'dashed',
   },
   text: {
-    fontSize: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 55,
+    fontSize: 14,
+    top: -3,
   },
 });
 
@@ -39,6 +38,7 @@ export default function DetailGraph(props) {
   const bottom = Math.min(...lowArr);
   const gap = top - bottom;
   const gridArr = [
+    top,
     bottom + (gap * 3) / 4,
     bottom + (gap * 2) / 4,
     bottom + gap / 4,
@@ -104,7 +104,7 @@ export default function DetailGraph(props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.graphBox} horizontal={true}>
+      <View style={styles.graphBox}>
         {gridArr.map((item, index) => {
           return (
             <View style={styles.grid} top={index * 25 + '%'}>
@@ -112,6 +112,8 @@ export default function DetailGraph(props) {
             </View>
           );
         })}
+      </View>
+      <ScrollView style={styles.graphBox} horizontal={true}>
         {graphData.map((item, index) => {
           return (
             <View style={item.full} key={index}>
