@@ -5856,6 +5856,11 @@
   "resolved" "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz"
   "version" "0.70.3"
 
+"react-native-linear-gradient@^2.6.2":
+  "integrity" "sha512-Z8Xxvupsex+9BBFoSYS87bilNPWcRfRsGC0cpJk72Nxb5p2nEkGSBv73xZbEHnW2mUFvP+huYxrVvjZkr/gRjQ=="
+  "resolved" "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.6.2.tgz"
+  "version" "2.6.2"
+
 "react-native-safe-area-context@^4.4.1", "react-native-safe-area-context@>= 3.0.0":
   "integrity" "sha512-N9XTjiuD73ZpVlejHrUWIFZc+6Z14co1K/p1IFMkImU7+avD69F3y+lhkqA2hN/+vljdZrBSiOwXPkuo43nFQA=="
   "resolved" "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-4.4.1.tgz"

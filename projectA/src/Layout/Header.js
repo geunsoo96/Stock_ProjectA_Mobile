@@ -21,8 +21,8 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#FFC33B',
-    // background: 'linear-gradient(360deg, violet, #FFC33B)',
+    backgroundColor: '#FFC33B',
+    background: 'linear-gradient(360deg, violet, #FFC33B)',
     height: 50,
     display: 'flex',
     flexDirection: 'row',
