@@ -1,8 +1,6 @@
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
-// staro;
-// tag;
 
 import Header from '../../Layout/Header';
 
@@ -10,7 +8,6 @@ const News = () => {
   const [today, setToday] = useState('');
   const [contentImage, setContentImage] = useState([]);
   const [test, setTest] = useState(true);
-  const [switchValue, setSwitchValue] = useState(true);
   const [getData, setGetData] = useState(1);
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -48,8 +45,7 @@ const News = () => {
             };
             datavalue[i] = value;
           }
-          let value = newsData.concat(datavalue);
-          setNewsData(value);
+          setNewsData(datavalue);
           setLoading(false);
         })
         .catch(err => {
@@ -65,15 +61,13 @@ const News = () => {
           for (let i = 0; i < res.length; i++) {
             image.push(res[i].download_url);
           }
-          let value = contentImage.concat(image);
-          setContentImage(value);
+          setContentImage(image);
         });
     };
 
     setLoading(true);
     getDataValue();
     getImageData();
-    console.log(newsData);
   }, [getData]);
 
   if (loading) {
@@ -111,7 +105,6 @@ const News = () => {
                     if (getData < 331) {
                       setGetData(getData + 1);
                       setTest(!test);
-                      console.log(getData);
                     }
                   }
                 }}>
@@ -126,7 +119,10 @@ const News = () => {
                           {newsData[i].newsTitle}
                         </Text>
                         <Text style={styles.summary}>{newsData[i].sumar}</Text>
-                        <Text style={styles.date}>{newsData[i].date}</Text>
+                        <Text style={styles.date}>
+                          {newsData[i].date}{' '}
+                          <Icon name="tag" style={styles.date}></Icon>
+                        </Text>
                       </View>
                     </View>
                   );
@@ -143,18 +139,15 @@ const News = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: 'greenyellow',
   },
   topContainer: {
     flex: 1,
-    // backgroundColor: 'pink',
     justifyContent: 'center',
     alignItems: 'center',
   },
   topBox: {
     width: 138,
     height: 35,
-    // backgroundColor: 'purple',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -166,13 +159,11 @@ const styles = StyleSheet.create({
 
   contentsContainer: {
     flex: 3.5,
-    // backgroundColor: 'yellow',
     alignItems: 'center',
   },
   contentsBox: {
     width: 350,
     height: 440,
-    // backgroundColor: 'skyblue',
   },
   contents: {
     flexDirection: 'row',
@@ -182,41 +173,42 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#d3d3d3',
-    // backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   imageBox: {
     flex: 1,
-    // backgroundColor: 'red',
     justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
-    width: 90,
+    width: 110,
     height: 120,
     borderRadius: 10,
   },
   newsBox: {
     flex: 2,
-    // backgroundColor: '#d3d3d3',
     height: 110,
   },
   title: {
-    flex: 1,
-    // backgroundColor: 'blue',
-    fontSize: 14,
+    flex: 2.5,
+    color: 'black',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
   summary: {
-    flex: 2,
-    // backgroundColor: 'green',
+    flex: 3.5,
     fontSize: 10,
+    marginTop: 10,
+    fontWeight: 'bold',
   },
   date: {
     flex: 1,
-    // backgroundColor: 'yellow',
     fontSize: 12,
+    marginTop: 10,
+    fontWeight: 'bold',
+    color: 'black',
   },
 });
 
