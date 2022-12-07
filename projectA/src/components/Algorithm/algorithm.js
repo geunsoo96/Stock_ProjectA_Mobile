@@ -142,6 +142,7 @@ import {useState} from 'react';
 import React from 'react';
 import {ScrollView} from 'react-native';
 import Header from '../../Layout/Header';
+import {useNavigation} from '@react-navigation/native';
 
 const Algorithm = () => {
   const [kospi, setKospi] = React.useState('');
@@ -157,6 +158,9 @@ const Algorithm = () => {
     '에스원',
     '서울식품',
   ];
+  const dummyKospiPrice = [
+    68000, 134000, 34100, 110000, 80000, 87500, 73600, 1234, 4321, 123,
+  ];
   const dummyKosdaq = [
     '노란우산',
     '한화리조트',
@@ -169,27 +173,122 @@ const Algorithm = () => {
     '청주딸기',
     '감자보험',
   ];
+  const navigation = useNavigation();
   return (
     <ScrollView>
-      <View>
-        <Text>이달의 추천 주식</Text>
-        <TouchableOpacity>
-          <Text>침팬지 추천받기</Text>
+      <Header />
+      <View style={styles.container}>
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: 'bold',
+          }}>
+          이달의 추천 주식
+        </Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Lotto')}>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: 16,
+              fontWeight: 'bold',
+            }}>
+            침팬지 추천받기
+          </Text>
         </TouchableOpacity>
-        <View>
+        <View style={styles.stockBox}>
           {/* kospi */}
-          <View></View>
-          <View></View>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 15,
+              marginTop: 10,
+            }}>
+            KOSPI
+          </Text>
+          <View style={styles.stockBorder}>
+            <View style={styles.stockList}>
+              {/* name */}
+              <Text>{dummyKospi}</Text>
+            </View>
+            <View style={styles.stockList}>
+              {/* price */}
+              <Text>{dummyKospiPrice}</Text>
+            </View>
+          </View>
         </View>
-        <View>
+        <View style={styles.stockBox}>
           {/* kosdaq */}
-          <View></View>
-          <View></View>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 15,
+              marginTop: 10,
+            }}>
+            KOSDAQ
+          </Text>
+          <View style={styles.stockBorder}>
+            <View style={styles.stockList}>
+              {/* name */}
+              <Text>{dummyKosdaq}</Text>
+            </View>
+            <View style={styles.stockList}>
+              {/* price */}
+              <Text>{dummyKospiPrice}</Text>
+            </View>
+          </View>
         </View>
       </View>
     </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  button: {
+    backgroundColor: '#FFC33B',
+    width: 200,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    margin: 10,
+  },
+  stockBox: {
+    flex: 1,
+    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  stockBorder: {
+    flex: 1,
+    padding: 10,
+    borderStyle: 'solid',
+    borderColor: '#FFC33B',
+    borderWidth: 3,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    height: 300,
+    margin: 10,
+  },
+  stockList: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  stockText: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+});
 export default Algorithm;
