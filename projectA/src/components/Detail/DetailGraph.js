@@ -7,10 +7,9 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
   },
   graphBox: {
-    width: 400,
+    width: 345,
     height: 280,
     position: 'absolute',
   },
@@ -22,8 +21,10 @@ const styles = StyleSheet.create({
     borderStyle: 'dashed',
   },
   text: {
+    width: 50,
     fontSize: 14,
-    top: -3,
+    top: -10,
+    backgroundColor: 'white',
   },
 });
 
@@ -39,9 +40,9 @@ export default function DetailGraph(props) {
   const gap = top - bottom;
   const gridArr = [
     top,
-    bottom + (gap * 3) / 4,
-    bottom + (gap * 2) / 4,
-    bottom + gap / 4,
+    Math.floor(bottom + (gap * 3) / 4),
+    Math.floor(bottom + (gap * 2) / 4),
+    Math.floor(bottom + gap / 4),
     bottom,
   ];
   let barWidth = 0;
@@ -50,12 +51,12 @@ export default function DetailGraph(props) {
   } else if (highArr.length > 50) {
     barWidth = 10;
   } else {
-    barWidth = 20;
+    barWidth = 345 / 20;
   }
   const graphData = props.data
     .slice(0)
     .reverse()
-    .map(item => {
+    .map((item, index) => {
       let data = {
         full: {
           width: barWidth,
@@ -104,16 +105,16 @@ export default function DetailGraph(props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.graphBox}>
+      <View style={styles.graphBox} width={400}>
         {gridArr.map((item, index) => {
           return (
-            <View style={styles.grid} top={index * 25 + '%'}>
+            <View style={styles.grid} top={index * 25 + '%'} key={index}>
               <Text style={styles.text}>{item}</Text>
             </View>
           );
         })}
       </View>
-      <ScrollView style={styles.graphBox} horizontal={true}>
+      <ScrollView style={styles.graphBox} horizontal={true} left={55}>
         {graphData.map((item, index) => {
           return (
             <View style={item.full} key={index}>

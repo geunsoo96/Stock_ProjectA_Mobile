@@ -8,19 +8,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
   },
-  text36: {
+  name: {
+    color: 'black',
     fontSize: 36,
+    fontWeight: '900',
   },
-  text25: {
+  code: {
+    color: 'black',
     fontSize: 25,
+    fontWeight: '600',
   },
 });
 
 export default function DetailName(props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text36}>{props.data.name}</Text>
-      <Text style={styles.text25}>{props.data.code}</Text>
+      <Text style={styles.name}>{props.data.name}</Text>
+      <Text style={styles.code}>{props.data.code}</Text>
     </View>
   );
 }

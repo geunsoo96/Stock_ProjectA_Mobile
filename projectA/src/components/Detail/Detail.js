@@ -8,10 +8,10 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
+    backgroundColor: 'white',
   },
   nameBox: {
     height: 50,
-    backgroundColor: 'red',
     flexDirection: 'row',
   },
   graphBox: {
@@ -19,14 +19,12 @@ const styles = StyleSheet.create({
   },
   buttonBox: {
     height: 60,
-    backgroundColor: 'blue',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     padding: 10,
   },
   priceBox: {
     height: 420,
-    backgroundColor: 'pink',
   },
 });
 
@@ -1128,12 +1126,21 @@ export default function Detail(props) {
   const [nameData, nameDataSet] = useState(nameDummyData);
   const [graphData, graphDataSet] = useState(graphDummyData);
   const [priceData, priceDataSet] = useState(priceDummyData);
-  // useEffect(() => {
-  //   priceDataSet(graphDummyData[0]);
-  // }, []);
+  let code = '000020';
+  useEffect(() => {
+    fetch(`http://10.0.2.2:5000/code/${code}`)
+      .then(res => res.json())
+      .then(res => graphDataSet(res))
+      .catch(err => console.log(err));
+  }, []);
   const onPress = a => {
-    let data = graphDummyData.slice(0, a);
-    graphDataSet(data);
+    fetch(`http://10.0.2.2:5000/code/${code}`)
+      .then(res => res.json())
+      .then(res => {
+        let data = res.slice(0, a);
+        graphDataSet(data);
+      })
+      .catch(err => console.log(err));
   };
   return (
     <ScrollView style={styles.container}>
@@ -1146,18 +1153,21 @@ export default function Detail(props) {
       <View style={styles.buttonBox}>
         <Button
           title="1개월"
+          color={'#cccccc'}
           onPress={() => {
             onPress(20);
           }}
         />
         <Button
           title="3개월"
+          color={'#cccccc'}
           onPress={() => {
             onPress(60);
           }}
         />
         <Button
           title="6개월"
+          color={'#cccccc'}
           onPress={() => {
             onPress(120);
           }}
