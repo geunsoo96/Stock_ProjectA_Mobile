@@ -39,6 +39,16 @@ const Algorithm = () => {
     '감자보험',
   ];
   return (
+    //   <Tab.Screen
+    //   name="Algorithm"
+    //   component={Algorithm}
+    //   options={{
+    //     title: '추천',
+    //     tabBarIcon: ({color, size}) => (
+    //       <Icon name="recommend" color={color} size={size} />
+    //     ),
+    //   }}
+    // />
     <ScrollView
       style={{
         height: '100%',
@@ -46,8 +56,17 @@ const Algorithm = () => {
       <Header />
       <View style={styles.head}>
         <Text style={styles.headText}>이달의 추천 주식</Text>
-        <Button title="침팬지 추천받기" color="salmon" />
-
+        {/* <Button title="침팬지 추천받기" color="salmon" /> */}
+        <Tab.Screen
+          name="Algorithm"
+          component={Algorithm}
+          options={{
+            title: '추천',
+            tabBarIcon: ({color, size}) => (
+              <Icon name="recommend" color={color} size={size} />
+            ),
+          }}
+        />
         <Pressable style={styles.button} title="hi"></Pressable>
       </View>
       <View style={styles.container}>
