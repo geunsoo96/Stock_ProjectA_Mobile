@@ -30,7 +30,7 @@ export default function DetailPrice(props) {
     <View style={styles.container}>
       {dataSet.map((item, index) => {
         return (
-          <View key={index} style={styles.priceBox}>
+          <View style={styles.priceBox} key={item.kr}>
             <Text style={styles.text}>{item.kr}</Text>
             <Text style={styles.text}>{props.data[item.en]}</Text>
           </View>
