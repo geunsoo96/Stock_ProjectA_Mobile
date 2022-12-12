@@ -3,6 +3,7 @@ import {View, ScrollView, StyleSheet, Button} from 'react-native';
 import DetailGraph from './DetailGraph';
 import DetailName from './DetailName';
 import DetailPrice from './DetailPrice';
+import Header from '../../Layout/Header';
 
 const styles = StyleSheet.create({
   container: {
@@ -1143,39 +1144,42 @@ export default function Detail(props) {
       .catch(err => console.log(err));
   };
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.nameBox}>
-        <DetailName data={nameData} />
-      </View>
-      <View style={styles.graphBox}>
-        <DetailGraph data={graphData} />
-      </View>
-      <View style={styles.buttonBox}>
-        <Button
-          title="1개월"
-          color={'#cccccc'}
-          onPress={() => {
-            onPress(20);
-          }}
-        />
-        <Button
-          title="3개월"
-          color={'#cccccc'}
-          onPress={() => {
-            onPress(60);
-          }}
-        />
-        <Button
-          title="6개월"
-          color={'#cccccc'}
-          onPress={() => {
-            onPress(120);
-          }}
-        />
-      </View>
-      <View style={styles.priceBox}>
-        <DetailPrice data={priceData} />
-      </View>
-    </ScrollView>
+    <>
+      <Header />
+      <ScrollView style={styles.container}>
+        <View style={styles.nameBox}>
+          <DetailName data={nameData} />
+        </View>
+        <View style={styles.graphBox}>
+          <DetailGraph data={graphData} />
+        </View>
+        <View style={styles.buttonBox}>
+          <Button
+            title="1개월"
+            color={'#cccccc'}
+            onPress={() => {
+              onPress(20);
+            }}
+          />
+          <Button
+            title="3개월"
+            color={'#cccccc'}
+            onPress={() => {
+              onPress(60);
+            }}
+          />
+          <Button
+            title="6개월"
+            color={'#cccccc'}
+            onPress={() => {
+              onPress(120);
+            }}
+          />
+        </View>
+        <View style={styles.priceBox}>
+          <DetailPrice data={priceData} />
+        </View>
+      </ScrollView>
+    </>
   );
 }

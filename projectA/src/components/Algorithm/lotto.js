@@ -3,7 +3,7 @@ import {View, Image, StyleSheet, Text} from 'react-native';
 
 const Lotto = () => {
   return (
-    <View>
+    <>
       <Header />
       <View style={styles.container}>
         <Image source={require('../../../public/img/image.png')}></Image>
@@ -24,14 +24,15 @@ const Lotto = () => {
         </Text>
         <View style={styles.randomBox}></View>
       </View>
-    </View>
+    </>
   );
 };
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 50,
+    backgroundColor: 'white',
   },
   randomBox: {
     width: 300,

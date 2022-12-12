@@ -10,8 +10,8 @@ export default function Main() {
   return (
     <>
       <Header />
-      <View>
-        <ScrollView style={styles.container}></ScrollView>
+      <View style={styles.container}>
+        <ScrollView></ScrollView>
       </View>
     </>
   );
@@ -19,6 +19,7 @@ export default function Main() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'skyblue',
+    flex: 1,
+    backgroundColor: 'white',
   },
 });
